@@ -2,8 +2,8 @@
 
 ## To do
 
-- [ ] 도메인 모델 정의
-- [ ] 엔티티 정의
+- [x] [도메인 모델 정의](https://github.com/a01575dc-b401-4506-8753-7d523b558dfa/membership-service/issues/1)
+- [x] [엔티티 정의](https://github.com/a01575dc-b401-4506-8753-7d523b558dfa/membership-service/issues/1)
 - [ ] 브렌치 전략 선정
     - [ ] Git Flow
     - [ ] GitHub Flow
