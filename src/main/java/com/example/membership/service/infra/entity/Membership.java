@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Getter
 @Setter
@@ -14,7 +14,6 @@ import javax.persistence.*;
 @Entity
 public class Membership {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @OneToOne
     @JoinColumn(name = "user_id")
