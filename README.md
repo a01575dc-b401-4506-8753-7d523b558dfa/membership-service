@@ -1,5 +1,18 @@
 # Membership Service
 
+## How to Run
+
+```shell
+# Start mysql
+$ make local-dev-up
+
+# Start server
+$ ./gradlew bootRun
+
+# Stop mysql
+$ make local-dev-down
+```
+
 ## To do
 
 - [x] [도메인 모델 정의](https://github.com/a01575dc-b401-4506-8753-7d523b558dfa/membership-service/issues/1)
