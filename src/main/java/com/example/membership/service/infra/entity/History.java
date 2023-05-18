@@ -1,27 +1,22 @@
 package com.example.membership.service.infra.entity;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import jakarta.persistence.*;
-import java.sql.Timestamp;
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "point_id")
-    private Point point_id;
+    @JoinColumn(name = "point")
+    private final Point point;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_id")
-    private Store store_id;
-    private int amount;
-    private Timestamp timestamp;
+    @JoinColumn(name = "store")
+    private final Store store;
+    private final int amount;
+    private final Long time;
 }
