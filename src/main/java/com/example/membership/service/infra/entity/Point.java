@@ -12,7 +12,7 @@ public class Point {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "membership")
+    @JoinColumn(name = "membership_id")
     private final Membership membership;
     private final String category;
     private final int amount;

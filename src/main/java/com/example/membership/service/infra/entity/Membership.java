@@ -11,6 +11,6 @@ public class Membership {
     @Id
     private String id;
     @OneToOne(optional=false,fetch= FetchType.LAZY)
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private final User user;
 }

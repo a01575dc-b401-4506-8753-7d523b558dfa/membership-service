@@ -12,10 +12,10 @@ public class History {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "point")
+    @JoinColumn(name = "point_id")
     private final Point point;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store")
+    @JoinColumn(name = "store_id")
     private final Store store;
     private final int amount;
     private final Long time;
