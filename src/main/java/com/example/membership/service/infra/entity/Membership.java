@@ -9,7 +9,7 @@ import lombok.Getter;
 @Entity
 public class Membership {
     @Id
-    private String id;
+    private final String id;
     @OneToOne(optional=false,fetch= FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private final User user;

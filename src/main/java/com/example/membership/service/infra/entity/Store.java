@@ -13,7 +13,7 @@ import lombok.Getter;
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private final Long id;
     private final String name;
     private final String category;
 }

@@ -10,7 +10,7 @@ import lombok.Getter;
 public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private final Long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "point_id")
     private final Point point;
