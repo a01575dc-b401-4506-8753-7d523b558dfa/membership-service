@@ -1,9 +1,6 @@
 package com.example.membership.service.service;
 
-import com.example.membership.service.infra.entity.Membership;
-import com.example.membership.service.infra.entity.MembershipRepository;
-import com.example.membership.service.infra.entity.User;
-import com.example.membership.service.infra.entity.UserRepository;
+import com.example.membership.service.infra.entity.*;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -71,7 +68,6 @@ class BarcodeCreateServiceTest {
         // 저장된 Membership 객체 가져오기
         Membership savedMembership = captor.getValue();
 
-        // id 값이 10자리 숫자인지 확인
         assertTrue(savedMembership.getId().matches("\\d{10}"));
     }
 
@@ -80,10 +76,7 @@ class BarcodeCreateServiceTest {
         // userRepository.findById() 메소드가 가상의 유저 객체를 반환하도록 설정
         when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
-        // RuntimeException 이 동작하는지 확인
-        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> barcodeCreateService.createBarcode(userId));
-
-        // id없음이라고 나오는지 확인
-        assertEquals(runtimeException.getMessage(),"id없음");
+        // UserNotFoundException 이 동작하는지 확인
+        assertThrows(UserNotFoundException.class, () -> barcodeCreateService.createBarcode(userId));
     }
 }
