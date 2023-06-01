@@ -2,12 +2,10 @@ package com.example.membership.service.infra.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@Builder
 @Entity
 public class Membership {
     @Id
