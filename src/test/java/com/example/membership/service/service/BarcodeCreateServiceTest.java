@@ -2,7 +2,6 @@ package com.example.membership.service.service;
 
 import com.example.membership.service.infra.entity.*;
 import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -12,7 +11,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -38,8 +38,8 @@ class BarcodeCreateServiceTest {
         // userRepository.findById() 메소드가 Optional.empty()를 반환하도록 설정
         when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
-        // barcodeCreate() 메소드를 호출하면 RuntimeException이 발생하는지 검증
-        assertThrows(RuntimeException.class, () -> barcodeCreateService.createBarcode(userId));
+        // barcodeCreate() 메소드를 호출하면 UserNotFoundException 발생하는지 검증
+        assertThrows(UserNotFoundException.class, () -> barcodeCreateService.createBarcode(userId));
 
         // userRepository.findById() 메소드가 1번 호출되었는지 검증
         verify(userRepository, times(1)).findById(userId);
