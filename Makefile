@@ -1,4 +1,7 @@
 
+run:
+	./gradlew bootRun -Dspring.profiles.active=local
+
 local-dev-up:
 	make -C ./docker local-dev-up
 
