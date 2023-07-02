@@ -16,9 +16,7 @@ public class BarcodeCreateService {
     private final MembershipRepository membershipRepository;
 
     public Membership createBarcode(Long userId) {
-        if(!userId.toString().matches("\\d{9}")){
-            throw new UserIdLengthException(userId);
-        }
+        validateUserId(userId);
         final User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
         try {
@@ -38,5 +36,17 @@ public class BarcodeCreateService {
                         .user(user)
                         .build()
         );
+    }
+
+    private void validateUserId(Long userId){
+        if(userId == null) {
+            throw new IllegalArgumentException("user Id is NULL");
+        }
+        if(userId <= 0) {
+            throw new IllegalArgumentException("user ID is negative");
+        }
+        if(String.valueOf(userId).length() != 9) {
+            throw new UserIdLengthException(userId);
+        }
     }
 }
