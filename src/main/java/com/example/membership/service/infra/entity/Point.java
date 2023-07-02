@@ -18,4 +18,6 @@ public class Point {
     private final Membership membership;
     private final String category;
     private final int amount;
+    @Version
+    private final int version;
 }
