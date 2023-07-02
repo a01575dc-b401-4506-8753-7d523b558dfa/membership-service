@@ -11,7 +11,6 @@ import lombok.Getter;
 @Entity
 public class Membership {
     @Id
-    @Column(unique = true)
     private final String id;
     @OneToOne(optional=false,fetch= FetchType.LAZY)
     @JoinColumn(name = "user_id")

@@ -87,6 +87,6 @@ class BarcodeCreateServiceTest {
 
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
 
-        assertThrows(UserIdLengthException.class, () -> barcodeCreateService.createBarcode(userId));
+        assertThrows(UserIdLengthException.class, () -> barcodeCreateService.createBarcode(userId2));
     }
 }

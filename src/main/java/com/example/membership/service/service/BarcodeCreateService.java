@@ -16,11 +16,11 @@ public class BarcodeCreateService {
     private final MembershipRepository membershipRepository;
 
     public Membership createBarcode(Long userId) {
-        final User user = userRepository.findById(userId)
-                .orElseThrow(() -> new UserNotFoundException(userId));
-        if(!user.getId().toString().matches("\\d{9}")){
+        if(!userId.toString().matches("\\d{9}")){
             throw new UserIdLengthException(userId);
         }
+        final User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
         try {
             return membershipRepository.findByUserId(user.getId())
                     .orElseGet(() -> saveAndGetBarcode(user));
